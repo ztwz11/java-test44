@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{layout/layout :: layout(~{::content})}"
+>
+  <head>
+    <title>Home Page</title>
+    <!-- 페이지별 추가 스타일 또는 스크립트 -->
+  </head>
+  <body>
+    <th:block th:fragment="content">
+      <header>
+        <h1>Welcome to the Home Page</h1>
+      </header>
+
+      <main>
+        <p th:text="${message}">Default message</p>
+        <div chunjae-cid="exampleComponent"></div>
+        <button chunjae-cid="exampleButton">before converting</button>
+      </main>
+      <footer>
+        <p>&copy; 2024 My Website</p>
+      </footer>
+    </th:block>
+  </body>
+</html>
