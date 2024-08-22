@@ -10,17 +10,30 @@ widgetStart({
     render: function () {
       console.log("Rendering");
     },
-    // 클릭이벤트
-    onExampleClick: function () {
-      console.log("Example component clicked");
-    },
-    // component 초기화 및 기초 데이터 할당
-    oninitControl: function () {
-      console.log("Initializing control");
-    },
-    // API 호출 함수
-    callSearchApi: function () {
-      console.log("Calling search API");
+    events: {
+      onTransButtonClick: function (...args) {
+        console.log("Trans button clicked");
+        var show = !this.getWidget("transButton").getValue();
+
+        this.getWidget("transButton").setValue(show);
+        if (!this.aa) {
+          this.aa = 0;
+        }
+        this.aa += 10;
+      },
+
+      onSaveClick: function (...args) {
+        console.log("onSaveClick");
+        var show = !this.getWidget("Save").getValue();
+
+        alert(this.aa);
+
+        this.getWidget("Save").setValue(show);
+      },
+      onSearchInputChange: function (event) {
+        console.log("Search input changed", event.target.value);
+      },
+      // 기타 이벤트 핸들러...
     },
   },
 });

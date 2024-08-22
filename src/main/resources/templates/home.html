@@ -13,14 +13,26 @@
         <h1>Welcome to the Home Page</h1>
       </header>
 
-      <main>
-        <p th:text="${message}">Default message</p>
-        <div chunjae-cid="exampleComponent"></div>
-        <button chunjae-cid="exampleButton">before converting</button>
-      </main>
-      <footer>
-        <p>&copy; 2024 My Website</p>
-      </footer>
+      <div
+        id="testTrans"
+        cjv-key="transButton"
+        cjv-component="transButtonComponent"
+      >
+        <div class="trans_Btn">
+          <button>Toggle</button>
+        </div>
+        <div class="trans_result">
+          <Transition>
+            <p v-if="show">hello</p>
+          </Transition>
+        </div>
+      </div>
+      <div cjv-component="exampleComponent" cjv-key="exam"></div>
+      <input type="text" cjv-key="test1" cjv-component="inputComponent" />
+      <button cjv-component="buttonComponent" cjv-key="save">save</button>
+      <input type="text" cjv-key="test2" cjv-component="inputComponent" />
+
+      <footer></footer>
     </th:block>
   </body>
 </html>
