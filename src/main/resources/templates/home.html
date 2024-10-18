@@ -4,19 +4,29 @@
   th:replace="~{layout/layout :: layout(~{::content})}"
 >
   <head>
-    <title>Home Page</title>
     <!-- 페이지별 추가 스타일 또는 스크립트 -->
+   
   </head>
   <body>
     <th:block th:fragment="content">
       <header>
         <h1>Welcome to the Home Page</h1>
       </header>
+      <label data-cjt-key="label1" data-cjt-comp="label" >라벨</label>      
+      <input type="text" data-cjt-key="timestamp" data-cjt-comp="input" class="test1"  />
 
-      <div
+      <!-- <input type="text" data-cjt-key="eventTime" data-cjt-comp="input"  /> -->
+
+       <div data-cjt-key="testForm"  data-cjt-comp="form">        
+        <input type="text" data-cjt-key="eventTime1" data-cjt-comp="input" class="2342342" />        
+        <div data-cjt-key="testForm2"  data-cjt-comp="form">        
+          <input type="text" data-cjt-key="eventTime2" data-cjt-comp="input"  />        
+         </div> 
+       </div> 
+      <!-- <div
         id="testTrans"
-        cjv-key="transButton"
-        cjv-component="transButtonComponent"
+        data-cjt-key="transButton"
+        data-cjt-comp="transButton"
       >
         <div class="trans_Btn">
           <button>Toggle</button>
@@ -27,10 +37,71 @@
           </Transition>
         </div>
       </div>
-      <div cjv-component="exampleComponent" cjv-key="exam"></div>
-      <input type="text" cjv-key="test1" cjv-component="inputComponent" />
-      <button cjv-component="buttonComponent" cjv-key="save">save</button>
-      <input type="text" cjv-key="test2" cjv-component="inputComponent" />
+      <input type="text" data-cjt-key="test1" data-cjt-comp="input" />
+      <button data-cjt-comp="button" data-cjt-key="save">save</button>
+      <input type="text" data-cjt-key="test2" data-cjt-comp="input" />
+      <div  data-cjt-key="menu" data-cjt-comp="menu">
+        <a data-cjt-key="menu-item1" data-cjt-comp="link" href="" >메뉴1</a>
+        <a data-cjt-key="menu-item2" data-cjt-comp="link" href="" >메뉴2</a>
+        <a data-cjt-key="menu-item3" data-cjt-comp="link" href="" >메뉴3</a>
+        <a data-cjt-key="menu-item4" data-cjt-comp="link" href="" >메뉴4</a>
+        <a data-cjt-key="menu-item5" data-cjt-comp="link" href="" >메뉴5</a>
+      </div>
+      <div  data-cjt-key="contents" data-cjt-comp="contents">
+        <table data-cjt-key="grid1" data-cjt-comp="grid" >
+          <thead>
+            <tr>
+              <th>Header 1</th>
+              <th>Header 2</th>
+              <th>Header 3</th>
+            </tr>
+          </thead>
+          <tbody data-cjt-grid-targert="true">
+            <tr >
+              <td data-cjt-grid-col-id="col1"></td>
+              <td data-cjt-grid-col-id="col2"></td>
+              <td data-cjt-grid-col-id="col3"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+            
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" /><input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+    <input type="text" data-cjt-key="test3" data-cjt-comp="testinput" />
+     -->
+        </div>
+      </div>
+      
+    
+<div>
+ 
+    </div>
+     
+      
+      <div data-cjt-comp="paging" data-cjt-key="paging"></div>
+      <div>
+        <!-- <div data-cjt-comp="scrollMenu" data-cjt-key="sidemenu"> -->
+          <div data-cjt-comp="paging" data-cjt-key="paging2"></div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <a href="/school">가즈아</a>
 
       <footer></footer>
     </th:block>

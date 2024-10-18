@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{layout/layout :: layout(~{::content})}"
+>
+  <head>
+    <!-- 페이지별 추가 스타일 또는 스크립트 -->
+	<script src="/js/school.js"></script>
+  </head>
+  <body>
+    <th:block th:fragment="content">
+      <div id="content" class="submain examWrap"> <!-- submain : 서브메인 공통 클래스 -->
+				<div class="topSlide">
+					<div class="slideTab swiper-container"><!--배너코드 WS_501-->
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide" v-for="d1 in arrBanner1">
+								<a :href="d1.Link_Path" :target="d1.View_Link_Type"><img :src="d1.Image_Path" :alt="d1.D_Banner_Name" :title="d1.D_Banner_Name"></a>
+							</li>
+						</ul>
+						<ul class="tabPagination"></ul>
+					</div>
+					<div class="slideDot swiper-container"><!--배너코드 WS_502-->
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide"  v-for="d1 in arrBanner2">
+								<a :href="d1.Link_Path" :target="d1.View_Link_Type"><img :src="d1.Image_Path" :alt="d1.D_Banner_Name" :title="d1.D_Banner_Name"></a>
+							</li>
+						</ul>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<div class="flexBox">
+					<div class="updateInfo">
+						<div class="titBox">
+							<h3 class="subTit">최신 입시 정보</h3>
+							<a href="/DaechiFirst/frm_DaechiFirst_High.aspx?Menucode=230600#highList" class="btnMore">더보기</a>
+						</div>
+						<ul class="infoBox">
+							<li v-for="d1 in EntrnceInfoList">
+								<span :class="d1.ICON">{{d1.Type}}</span>
+								<a :href="d1.Url" class="info">{{d1.Title}}</a>
+								<span class="date">{{d1.regdate}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="examSchedule">
+						<div class="titBox">
+							<h3 class="subTit">주요 입시 일정</h3>
+							<a href="/DreamSchool/frm_DreamSchool_exam_schedule.aspx?menucode=220380" class="btnMore">더보기</a>
+						</div>
+						<div>
+							<div class="dateArea">
+								<button class="btnPrev" id="prevBtn" name="prevBtn">이전 달</button>
+								<span class="month"><span id="calendarYear"></span>년 <span id="calendarMonth"></span>월</span>
+								<button class="btnNext" id="nextBtn" name="nextBtn">다음 달</button>
+							</div>
+							<div class="listArea scrollArea">
+								<ul>
+									<li v-for="entDate in EntDateList" :key="entDate">
+										<span class="date">{{entDate}}</span>
+										<div class="info" vlaing="center">
+	 										
+											<span v-for="di in EntrnceScheduleList " :key="di.Entrance_Date" v-if="di.Entrance_Date === entDate">&lt;{{di.SCHOOLNAME}}&gt; {{di.HeadLine}}</span>
+					 
+										</div>
+									</li>
+									<!--
+									<li>
+										<span class="date">7.13</span>
+										<div class="info">
+											<span>&lt;한국과학영재학교&gt; 1단계 합격자 발표</span>
+											<span>&lt;한국과학영재학교&gt; 1단계 합격자 발표</span>
+											<span>&lt;한국과학영재학교&gt; 1단계 합격자 발표</span>
+											
+										</div>
+									</li>
+									<li>
+										<span class="date">7.25</span>
+										<div class="info">
+											<span>&lt;한국과학영재학교&gt; 1단계 합격자 발표</span>
+											<span>&lt;한국과학영재학교&gt; 1단계 합격자 발표</span>
+										</div>
+									</li>
+									-->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="guideArea">
+					<h3 class="subTit">고교 입시정보</h3>
+					<div class="flexBox">
+						<div class="tit">
+							<span>더 완벽한<br>진학을 위한</span>
+							<strong><em>고교 선택 </em><br>가이드</strong>
+						</div>
+						<ul>
+							<li>
+								<a href="/DreamSchool/frm_DreamSchool_knowHighSchool.aspx?menucode=220350">
+									<strong>고등학교 바로알기</strong>
+									<span>중학생이라면 반드시<br>알아야 할 고입 기본상식</span>
+								</a>
+							</li>
+							<li>
+								<a href="/DalJa/HighInfo/frm_HighSchool_New_Info01.aspx?menucode=220310">
+									<strong>고교 유형별 정보</strong>
+									<span>나의 관심 분야와 희망<br>진로를 위한 학교 탐색</span>
+								</a>
+							</li>
+							<li>
+								<a href="/DreamSchool/highInfoFind/find_my_high.aspx?MenuCode=220370">
+									<strong>나의 고교 유형 찾기</strong>
+									<span>고등학교 선택 고민?<br>성향에 맞는 학교 추천 받기</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<h3 class="subTit">합격 전략 종합 분석</h3>
+					<ul class="flexBox">
+						<li>
+							<a href="/app/v2/HighEntrance/index.aspx/passProgram/home"><img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_pass01.jpg" alt="합격 진단 프로그램 바로가기"></a>
+						</li>
+						<li>
+							<a href="/app/v2/HighEntrance/index.aspx/studentProgram/diagnosis/home"><img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_pass02.jpg" alt="학생부 상세 진단 프로그램 바로가기"></a>
+						</li>
+						<li>
+							<a href="/app/v2/HighEntrance/index.aspx/studentProgram/personal/home"><img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_pass03.jpg" alt="자기소개서 컨설팅 바로가기"></a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h3 class="subTit">특목고 입시전략</h3>
+					<ul class="flexBox">
+						<li>
+							<a href="/DreamSchool/frm_DreamSchool_specialHighSchool.aspx?menucode=221920"><img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_strategy01.jpg" alt="학교별, 학년별 특목고 입시 대비 가이드라인 특목고 합격 로드맵"></a>
+						</li>
+							<a href="/DreamSchool/frm_DreamSchool_studentManager.aspx?menucode=220390"><img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_strategy02.jpg" alt="특목고 합격의 핵심 학생부 관리 전략"></a>
+						</li>
+						<li>
+							<a href="/DreamSchool/frm_DreamSchool_interview.aspx?menucode=221950&Type=2"><img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_strategy03.jpg" alt="나만의 차별화된 면접 대비 전략"></a>
+						</li>
+					</ul>
+					<div class="admission">
+						<strong class="tit">전형요강</strong>
+						<ul class="flexBox">
+							<li><a href="/DalJa/HighInfo/frm_HighSchool_New_EntranceInfo.aspx?MenuCode=221940&strSchool=%uC601%uC7AC%uD559%uAD50&strArea=&strYear=&strSchoolInfo=1&intIdx=0">영재학교</a></li>
+							<li><a href="/DalJa/HighInfo/frm_HighSchool_New_EntranceInfo.aspx?MenuCode=221940&strSchool=%uACFC%uD559%uACE0&strArea=&strYear=&strSchoolInfo=1&intIdx=0">과학고</a></li>
+							<li><a href="/DalJa/HighInfo/frm_HighSchool_New_EntranceInfo.aspx?MenuCode=221940&strSchool=%uC608%uC220%uCCB4%uC721%uACE0&strArea=&strYear=&strSchoolInfo=1&intIdx=0">예술&middot;체육고</a></li>
+							<li><a href="/DalJa/HighInfo/frm_HighSchool_New_EntranceInfo.aspx?MenuCode=221940&strSchool=%uB9C8%uC774%uC2A4%uD130%uACE0&strArea=&strYear=&strSchoolInfo=1&intIdx=0">마이스터고</a></li>
+							<li><a href="/DalJa/HighInfo/frm_HighSchool_New_EntranceInfo.aspx?MenuCode=221940&strSchool=%uAD6D%uC81C%uACE0&strArea=&strYear=&strSchoolInfo=1&intIdx=0">국제고</a></li>
+							<li><a href="/DalJa/HighInfo/frm_HighSchool_New_EntranceInfo.aspx?MenuCode=221940&strSchool=%uC678%uAD6D%uC5B4%uACE0&strArea=&strYear=&strSchoolInfo=1&intIdx=0">외국어고</a></li>
+							<li><a href="/DalJa/HighInfo/frm_HighSchool_New_EntranceInfo.aspx?MenuCode=221940&strSchool=%uC790%uC728%uD615%20%uC0AC%uB9BD%uACE0&strArea=&strYear=&strSchoolInfo=1&intIdx=0">자사고</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="flexBox slideArea">
+					<div>
+						<h3 class="subTit">SKY 멘토 비법</h3>
+						<div class="swiper-container slideMento">
+							<strong class="tit">명문대 출신<br>멘토들의<br><em>특별한 학습 조언</em></strong>
+							<ul class="swiper-wrapper">
+								<li class="swiper-slide">
+									<img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_mento01.jpg" alt="명문대 출신 멘토들의 특별한 학습 조언 - 서울대 사회학과 박상욱 멘토">
+								</li>
+								<li class="swiper-slide">
+									<img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_mento05.jpg" alt="명문대 출신 멘토들의 특별한 학습 조언 - 고려대 정치외교학과 류은채">
+								</li>
+								<li class="swiper-slide">
+									<img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_mento03.jpg" alt="명문대 출신 멘토들의 특별한 학습 조언 - 연세대 문헌정보학과 곽민규 멘토">
+								</li>
+							</ul>
+							<div class="btnGo">
+								<a href="/DalJa/Mento/HowTo/frm_Mento_HowtoList.aspx?MenuCode=220150">멘토 칼럼</a>
+								<a href="/Dalja/Mento/BBS/frm_BBS_List.aspx?MenuCode=220150">고민 상담</a>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+					<div>
+						<h3 class="subTit">밀크T 성공 STORY</h3>
+						<div class="swiper-container slideReview">
+							<ul class="swiper-wrapper">
+								<li class="swiper-slide">
+									<a href="javascript:openLpopPlay('https://www.youtube.com/embed/CfeDhuX21zc');">
+										<img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_review01.jpg" alt="한성과학고 오덕기 학생 - 과학고 진학 꿀팁 특목고 대비 과정 강력 추천! #시험 특강 #슬럼프극복 #특목고 입시전략">
+									</a>
+								</li>
+								<li class="swiper-slide">
+									<a href="javascript:openLpopPlay('https://www.youtube.com/embed/K5IOJ5UM0KY');">
+										<img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_review02.jpg" alt="미추홀외고 이정연 학생 - T쌤 족보와 개념 완성 퀴즈로 성적 상승 #학습스케줄 #외고생활 #힐링방법">
+									</a>
+								</li>
+								<li class="swiper-slide">
+									<a href="javascript:openLpopPlay('https://www.youtube.com/embed/bThp2jR2oiQ');">
+										<img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_review03.jpg" alt="북일고 문은호 학생 - 자사고 합격생의 학습 꿀템과 합격 꿀팁! #필기 꿀템 #생기부 준비 #학습플래너">
+									</a>
+								</li>
+								<li class="swiper-slide">
+									<a href="javascript:openLpopPlay('https://www.youtube.com/embed/2CNq2kN4L0c');">
+										<img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_review04.jpg" alt="울산외고 서정은 학생 - 시간 제약 없이 마음껏 공부하고 실력 업그레이드! #시험기간 공부루틴 #대치퍼스트 활용법 #외고분위기">
+									</a>
+								</li>
+								<li class="swiper-slide">
+									<a href="javascript:openLpopPlay('https://www.youtube.com/embed/yUZ86xqUxnI');">
+										<img src="//cdndata.milkt.co.kr/mid/www/Images/subMain/entranceExam/bnr_review05.jpg" alt="인천외고 노지호 학생 - 외고 합격생이 알려주는 최애 공부방법은? #복습필수템 #자소서 #기숙사생활">
+									</a>
+								</li>
+							</ul>
+							<button class="swiper-button-prev">이전 보기</button>
+							<button class="swiper-button-next">다음 보기</button>
+						</div>
+					</div>
+				</div>
+				<ul class="flexBox tipArea">
+					<li><a href="/Entrance/Subject_Guide/frm_Subject_Guide_Kor.aspx?MenuCode=220120">성적이 오르는<br><strong>과목별 학습법</strong></a></li>
+					<li><a href="/Entrance/Description_Guide/frm_Description_Guide_Intro.aspx?MenuCode=220130">만점 받는<br><strong>서술형 대비법</strong></a></li>
+					<li><a href="/DreamSchool/frm_DreamSchool_planner_useing.aspx?Menucode=220140">빈틈없는 학습 관리<br><strong>플래너 활용법</strong></a></li>
+				</ul>
+				<div>
+					<h3 class="subTit">진로정보&middot;추천도서</h3>
+					<ul class="flexBox">
+						<li v-for="d1 in arrBanner3"><!--입시전략 학과정보 WS_503-->
+							<a :href="d1.Link_Path" :target="d1.View_Link_Type"><img :src="d1.Image_Path" :alt="d1.D_Banner_Name" :title="d1.D_Banner_Name"></a>
+						</li>
+						<li v-for="d1 in arrBanner4"><!--입시전략 직업정보 WS_504-->
+							<a :href="d1.Link_Path" :target="d1.View_Link_Type"><img :src="d1.Image_Path" :alt="d1.D_Banner_Name" :title="d1.D_Banner_Name"></a>
+						</li>
+						<li v-for="d1 in arrBanner5"><!--입시전략 독서활동 WS_505-->
+							<a :href="d1.Link_Path" :target="d1.View_Link_Type"><img :src="d1.Image_Path" :alt="d1.D_Banner_Name" :title="d1.D_Banner_Name"></a>
+						</li>
+					</ul>
+				</div>
+				<div class="flexBox">
+					<div class="future">
+						<h3 class="subTit">미래형 대입 전략</h3>
+						<ul class="flexBox">
+							<li>
+								<a href="/DaechiFirst/frm_DaechiFirst_Univ.aspx?Menucode=220610">의학계열<br>전형 특징</a>
+							</li>
+							<li>
+								<a href="/DaechiFirst/frm_DaechiFirst_UnivMajor.aspx?Menucode=220620">주요 대학<br>모집 요강</a>
+							</li>
+							<li>
+								<a href="/DaechiFirst/frm_DaechiFirst_UnivInfo.aspx?Menucode=220630">대입<br>성공 전략</a>
+							</li>
+						</ul>
+					</div>
+					<div class="prepare">
+						<h3 class="subTit">시험 대비</h3>
+						<ul class="flexBox">
+							<li>
+								<a href="/DreamSchool/frm_DreamSchool_examInfo_main.aspx?MenuCode=221600">학교시험<br>대비</a>
+							</li>
+							<li>
+								<a href="/DreamSchool/frm_DreamSchool_examInfo_main.aspx?MenuCode=221600">자격 인증<br>시험</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+    </th:block>
+  </body>
+</html>
